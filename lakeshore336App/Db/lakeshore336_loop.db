@@ -4,6 +4,7 @@ record(fanout, "$(Sys)$(Dev)FOut"){
   field(LNK2, "$(Sys)$(Dev)Out-I")
   field(LNK3, "$(Sys)$(Dev)Err:Htr-Sts")
   field(SELM, "All")
+  info(autosaveFields, "SCAN")
 }
 
 record(ao, "$(Sys)$(Dev)T-SP"){

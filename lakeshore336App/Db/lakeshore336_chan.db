@@ -1,10 +1,11 @@
-record(fanout, "$(Sys)$(Dev)T-FOut"){
+record(fanout, "$(Sys)$(Dev)FOut"){
   field(SCAN, "10 second")
   field(SELM, "All")
   field(LNK1, "$(Sys)$(Dev)T:K-I")
   field(LNK2, "$(Sys)$(Dev)T:C-I")
   field(LNK3, "$(Sys)$(Dev)T:S-I")
   field(LNK4, "$(Sys)$(Dev)T-Sts")
+  info(autosaveFields, "SCAN")
 }
 
 record(ai, "$(Sys)$(Dev)T:K-I"){
