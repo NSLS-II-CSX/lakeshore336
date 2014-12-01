@@ -1,8 +1,16 @@
+record(fanout, "$(Sys)$(Dev)T-FOut"){
+  field(SCAN, "10 second")
+  field(SELM, "All")
+  field(LNK1, "$(Sys)$(Dev)T:K-I")
+  field(LNK2, "$(Sys)$(Dev)T:C-I")
+  field(LNK3, "$(Sys)$(Dev)T:S-I")
+  field(LNK4, "$(Sys)$(Dev)T-Sts")
+}
+
 record(ai, "$(Sys)$(Dev)T:K-I"){
   field(DTYP, "stream")
   field(EGU,  "K")
   field(PREC, "3")
-  field(SCAN, "1 second")
   field(INP,  "@lakeshore336.proto readFloat(KRDG?,$(CHAN)) $(PORT)")
 }
 
@@ -10,20 +18,17 @@ record(ai, "$(Sys)$(Dev)T:C-I"){
   field(DTYP, "stream")
   field(EGU,  "C")
   field(PREC, "3")
-  field(SCAN, "1 second")
   field(INP,  "@lakeshore336.proto readFloat(CRDG?,$(CHAN)) $(PORT)")
 }
 
 record(ai, "$(Sys)$(Dev)T:S-I"){
   field(DTYP, "stream")
   field(PREC, "3")
-  field(SCAN, "1 second")
   field(INP,  "@lakeshore336.proto readFloat(SRDG?,$(CHAN)) $(PORT)")
 }
 
 record(mbbi, "$(Sys)$(Dev)T-Sts"){
   field(DTYP, "stream")
-  field(SCAN, "1 second")
   field(INP,  "@lakeshore336.proto readInt(RDGST?,$(CHAN)) $(PORT)")
   field(ZRVL, "0")
   field(ONVL, "1")

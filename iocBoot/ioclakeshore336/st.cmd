@@ -20,7 +20,11 @@ asynSetTraceMask("LAKE1", 0, 0x9)
 asynSetTraceIOMask("LAKE1", 0, 0x2)
 ## Load record instances
 dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:A},PORT=LAKE1,CHAN=A")
+dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:B},PORT=LAKE1,CHAN=B")
+dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:C},PORT=LAKE1,CHAN=C")
+dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:D},PORT=LAKE1,CHAN=D")
 dbLoadRecords("$(TOP)/db/lakeshore336_loop.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Out:1},PORT=LAKE1,CHAN=1")
+dbLoadRecords("$(TOP)/db/lakeshore336_loop.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Out:2},PORT=LAKE1,CHAN=2")
 
 asSetFilename("/epics/xf/23id/xf23id.acf")
 

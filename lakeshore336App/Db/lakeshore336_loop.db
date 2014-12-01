@@ -1,3 +1,11 @@
+record(fanout, "$(Sys)$(Dev)FOut"){
+  field(SCAN, "10 second")
+  field(LNK1, "$(Sys)$(Dev)Sts:Ramp-Sts") 
+  field(LNK2, "$(Sys)$(Dev)Out-I")
+  field(LNK3, "$(Sys)$(Dev)Err:Htr-Sts")
+  field(SELM, "All")
+}
+
 record(ao, "$(Sys)$(Dev)T-SP"){
   field(DTYP, "stream")
   field(OUT,  "@lakeshore336.proto writeFloat(SETP,$(CHAN)) $(PORT)")
@@ -125,7 +133,6 @@ record(ai, "$(Sys)$(Dev)Gain:D-RB"){
 record(bi, "$(Sys)$(Dev)Sts:Ramp-Sts"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readInt(RAMPST?,$(CHAN)) $(PORT)")
-  field(SCAN, "1 second")
   field(ZNAM, "IDLE")
   field(ONAM, "RAMPING")
 }
@@ -202,7 +209,6 @@ record(mbbo, "$(Sys)$(Dev)Mode:ATune-Sel"){
 record(ai, "$(Sys)$(Dev)Out-I"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat(HTR?,$(CHAN)) $(PORT)")
-  field(SCAN, "1 second")
   field(EGU, "%")
 }
 
@@ -217,7 +223,6 @@ record(mbbi, "$(Sys)$(Dev)Err:Htr-Sts"){
   field(ONSV, "MAJOR")
   field(TWSV, "MAJOR")
   field(THSV, "MAJOR")
-  field(SCAN, "1 second")
 }
 
 record(ao, "$(Sys)$(Dev)Out:Man-SP"){
