@@ -4,3 +4,4 @@ as
 bin
 O.*
 *.swp
+envPaths
