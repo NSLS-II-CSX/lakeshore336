@@ -1,4 +1,4 @@
-lakeshore336
-============
+Lakeshore 336
+=============
 
 IOC for the Lakeshore 336 controller. 
