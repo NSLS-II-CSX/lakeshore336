@@ -1,30 +1,33 @@
 record(fanout, "$(Sys)$(Dev)FOut"){
   field(SCAN, "10 second")
   field(SELM, "All")
-  field(LNK1, "$(Sys)$(Dev)T:K-I")
-  field(LNK2, "$(Sys)$(Dev)T:C-I")
-  field(LNK3, "$(Sys)$(Dev)T:S-I")
-  field(LNK4, "$(Sys)$(Dev)T-Sts")
+  field(LNK2, "$(Sys)$(Dev)T-I")
+  field(LNK3, "$(Sys)$(Dev)Val:Sens-I")
+  field(LNK1, "$(Sys)$(Dev)T-Sts")
   info(autosaveFields, "SCAN")
 }
 
-record(ai, "$(Sys)$(Dev)T:K-I"){
-  field(DTYP, "stream")
+record(calc, "$(Sys)$(Dev)T-I"){
   field(EGU,  "K")
   field(PREC, "3")
+  field(INPA, "$(Sys)$(Dev)T-I_ PP MS")
+  field(INPB, "$(Sys)$(Dev)T-Sts NPP MS")
+  field(CALC, "A")
+}
+
+record(calc, "$(Sys)$(Dev)Val:Sens-I"){
+  field(PREC, "3")
+  field(INPA, "$(Sys)$(Dev)Val:Sens-I_ PP MS")
+  field(INPB, "$(Sys)$(Dev)T-Sts NPP MS")
+  field(CALC, "A")
+}
+record(ai, "$(Sys)$(Dev)T-I_"){
+  field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat(KRDG?,$(CHAN)) $(PORT)")
 }
 
-record(ai, "$(Sys)$(Dev)T:C-I"){
+record(ai, "$(Sys)$(Dev)Val:Sens-I_"){
   field(DTYP, "stream")
-  field(EGU,  "C")
-  field(PREC, "3")
-  field(INP,  "@lakeshore336.proto readFloat(CRDG?,$(CHAN)) $(PORT)")
-}
-
-record(ai, "$(Sys)$(Dev)T:S-I"){
-  field(DTYP, "stream")
-  field(PREC, "3")
   field(INP,  "@lakeshore336.proto readFloat(SRDG?,$(CHAN)) $(PORT)")
 }
 
