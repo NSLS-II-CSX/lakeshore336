@@ -24,7 +24,6 @@ lakeshore336_DBD += drvAsynSerialPort.dbd
 lakeshore336_DBD += system.dbd
 lakeshore336_DBD += asSupport.dbd
 lakeshore336_DBD += devIocStats.dbd
-lakeshore336_DBD += caPutLog.dbd
 
 # Add all the support libraries needed by this IOC
 lakeshore336_LIBS += caPutLog
