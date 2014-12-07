@@ -1,9 +1,7 @@
 record(fanout, "$(Sys)$(Dev)FOut"){
-  field(SCAN, "10 second")
   field(SELM, "All")
   field(LNK1, "$(Sys)$(Dev)T-I")
   field(LNK2, "$(Sys)$(Dev)Val:Sens-I")
-  info(autosaveFields, "SCAN")
 }
 
 record(ai, "$(Sys)$(Dev)T-I"){
@@ -11,7 +9,7 @@ record(ai, "$(Sys)$(Dev)T-I"){
   field(EGU,  "K")
   field(PREC, "3")
   field(DTYP, "stream")
-  field(SDIS, "$(Sys)$(Dev)T-Sts PP MS")
+  field(SDIS, "$(Sys)$(Dev)T-Sts NPP MS")
   field(DISA, "256")
   field(INP,  "@lakeshore336.proto readFloat(KRDG?,$(CHAN)) $(PORT)")
 }
@@ -19,7 +17,7 @@ record(ai, "$(Sys)$(Dev)T-I"){
 record(ai, "$(Sys)$(Dev)Val:Sens-I"){
   field(DESC, "Sensor Reading")
   field(DTYP, "stream")
-  field(SDIS, "$(Sys)$(Dev)T-Sts PP MS")
+  field(SDIS, "$(Sys)$(Dev)T-Sts NPP MS")
   field(DISA, "256")
   field(INP,  "@lakeshore336.proto readFloat(SRDG?,$(CHAN)) $(PORT)")
 }

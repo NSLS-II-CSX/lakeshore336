@@ -5,3 +5,4 @@ bin
 O.*
 *.swp
 envPaths
+records.dbl

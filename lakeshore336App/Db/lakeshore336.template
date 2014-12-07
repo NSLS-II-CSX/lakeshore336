@@ -1,3 +1,11 @@
+file "${TOP}/db/lakeshore336.db" {
+  pattern { Sys , Dev , LNK1 , LNK2 , LNK3 , LNK4 , LNK5 , LNK6 }
+  { "XF:23ID1-ES", "{TCtrl:1}",
+    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",
+    "{TCtrl:1-Chan:C}", "{TCtrl:1-Chan:D}",
+    "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}" }
+}
+
 file "${TOP}/db/lakeshore336_chan.db" {
   pattern { Sys , Dev , PORT , CHAN }
   { "XF:23ID1-ES", "{TCtrl:1-Chan:A}", "LAKE1", "A" }
