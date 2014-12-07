@@ -12,6 +12,7 @@ include $(TOP)/configure/CONFIG
 # databases, templates, substitutions like this
 DB += lakeshore336_chan.db
 DB += lakeshore336_loop.db
+DB += lakeshore336.template
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

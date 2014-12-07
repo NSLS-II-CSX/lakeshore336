@@ -1,37 +1,31 @@
 record(fanout, "$(Sys)$(Dev)FOut"){
   field(SCAN, "10 second")
   field(SELM, "All")
-  field(LNK2, "$(Sys)$(Dev)T-I")
-  field(LNK3, "$(Sys)$(Dev)Val:Sens-I")
-  field(LNK1, "$(Sys)$(Dev)T-Sts")
+  field(LNK1, "$(Sys)$(Dev)T-I")
+  field(LNK2, "$(Sys)$(Dev)Val:Sens-I")
   info(autosaveFields, "SCAN")
 }
 
-record(calc, "$(Sys)$(Dev)T-I"){
+record(ai, "$(Sys)$(Dev)T-I"){
+  field(DESC, "Temperature")
   field(EGU,  "K")
   field(PREC, "3")
-  field(INPA, "$(Sys)$(Dev)T-I_ PP MS")
-  field(INPB, "$(Sys)$(Dev)T-Sts NPP MS")
-  field(CALC, "A")
-}
-
-record(calc, "$(Sys)$(Dev)Val:Sens-I"){
-  field(PREC, "3")
-  field(INPA, "$(Sys)$(Dev)Val:Sens-I_ PP MS")
-  field(INPB, "$(Sys)$(Dev)T-Sts NPP MS")
-  field(CALC, "A")
-}
-record(ai, "$(Sys)$(Dev)T-I_"){
   field(DTYP, "stream")
+  field(SDIS, "$(Sys)$(Dev)T-Sts PP MS")
+  field(DISA, "256")
   field(INP,  "@lakeshore336.proto readFloat(KRDG?,$(CHAN)) $(PORT)")
 }
 
-record(ai, "$(Sys)$(Dev)Val:Sens-I_"){
+record(ai, "$(Sys)$(Dev)Val:Sens-I"){
+  field(DESC, "Sensor Reading")
   field(DTYP, "stream")
+  field(SDIS, "$(Sys)$(Dev)T-Sts PP MS")
+  field(DISA, "256")
   field(INP,  "@lakeshore336.proto readFloat(SRDG?,$(CHAN)) $(PORT)")
 }
 
 record(mbbi, "$(Sys)$(Dev)T-Sts"){
+  field(DESC, "Sensor Status")
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readInt(RDGST?,$(CHAN)) $(PORT)")
   field(ZRVL, "0")

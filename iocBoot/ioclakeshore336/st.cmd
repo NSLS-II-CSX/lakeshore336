@@ -15,28 +15,15 @@ epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST" , "NO")
 epicsEnvSet("EPICS_CA_ADDR_LIST"      , "10.23.0.255")
 epicsEnvSet("STREAM_PROTOCOL_PATH"    , "$(TOP)/protocols")
 
-drvAsynIPPortConfigure("LAKE1", "10.23.3.10:7777")
+drvAsynIPPortConfigure("LAKE1", "10.23.3.11:7777")
 #asynSetTraceMask("LAKE1", 0, 0x9)
 #asynSetTraceIOMask("LAKE1", 0, 0x2)
-drvAsynIPPortConfigure("LAKE2", "10.23.3.11:7777")
-#asynSetTraceMask("LAKE2", 0, 0x9)
-#asynSetTraceIOMask("LAKE2", 0, 0x2)
+drvAsynIPPortConfigure("LAKE2", "10.23.3.10:7777")
+asynSetTraceMask("LAKE2", 0, 0x9)
+asynSetTraceIOMask("LAKE2", 0, 0x2)
 
 ## Load record instances
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:A},PORT=LAKE1,CHAN=A")
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:B},PORT=LAKE1,CHAN=B")
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:C},PORT=LAKE1,CHAN=C")
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Chan:D},PORT=LAKE1,CHAN=D")
-dbLoadRecords("$(TOP)/db/lakeshore336_loop.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Out:1},PORT=LAKE1,CHAN=1")
-dbLoadRecords("$(TOP)/db/lakeshore336_loop.db","Sys=XF:23ID1-ES,Dev={TCtrl:1-Out:2},PORT=LAKE1,CHAN=2")
-
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:2-Chan:A},PORT=LAKE2,CHAN=A")
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:2-Chan:B},PORT=LAKE2,CHAN=B")
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:2-Chan:C},PORT=LAKE2,CHAN=C")
-dbLoadRecords("$(TOP)/db/lakeshore336_chan.db","Sys=XF:23ID1-ES,Dev={TCtrl:2-Chan:D},PORT=LAKE2,CHAN=D")
-dbLoadRecords("$(TOP)/db/lakeshore336_loop.db","Sys=XF:23ID1-ES,Dev={TCtrl:2-Out:1},PORT=LAKE2,CHAN=1")
-dbLoadRecords("$(TOP)/db/lakeshore336_loop.db","Sys=XF:23ID1-ES,Dev={TCtrl:2-Out:2},PORT=LAKE2,CHAN=2")
-
+dbLoadTemplate("$(TOP)/db/lakeshore336.template")
 asSetFilename("/epics/xf/23id/xf23id.acf")
 
 system("install -m 777 -d $(TOP)/as/save") 

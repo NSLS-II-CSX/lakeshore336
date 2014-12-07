@@ -2,7 +2,7 @@ record(fanout, "$(Sys)$(Dev)FOut"){
   field(SCAN, "10 second")
   field(LNK1, "$(Sys)$(Dev)Sts:Ramp-Sts") 
   field(LNK2, "$(Sys)$(Dev)Out-I")
-  field(LNK3, "$(Sys)$(Dev)Err:Htr-Sts")
+  field(LNK3, "$(Sys)$(Dev)T-RB")
   field(SELM, "All")
   info(autosaveFields, "SCAN")
 }
@@ -14,10 +14,15 @@ record(ao, "$(Sys)$(Dev)T-SP"){
   info(autosaveFields, "VAL")
 }
 
-record(ai, "$(Sys)$(Dev)T-RB"){
+record(calc, "$(Sys)$(Dev)T-RB"){
+  field(CALC, "A")
+  field(INPA, "$(Sys)$(Dev)T-RB_ PP MS")
+  field(INPB, "$(Sys)$(Dev)Err:Htr-Sts PP MS")
+}
+
+record(ai, "$(Sys)$(Dev)T-RB_"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat(SETP?,$(CHAN)) $(PORT)")
-  field(PINI, "1")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode-Sel"){
