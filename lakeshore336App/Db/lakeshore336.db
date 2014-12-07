@@ -6,6 +6,6 @@ record(fanout, "$(Sys)$(Dev)FOut"){
   field(LNK4, "$(Sys)$(LNK4)FOut")
   field(LNK5, "$(Sys)$(LNK5)FOut")
   field(LNK6, "$(Sys)$(LNK6)FOut")
-  field(SCAN, "1 second")
+  field(SCAN, ".1 second")
   info(autosaveFields, "SCAN")
 }

@@ -2,6 +2,7 @@ record(fanout, "$(Sys)$(Dev)FOut"){
   field(SELM, "All")
   field(LNK1, "$(Sys)$(Dev)T-I")
   field(LNK2, "$(Sys)$(Dev)Val:Sens-I")
+  field(SCAN, "Passive")
 }
 
 record(ai, "$(Sys)$(Dev)T-I"){

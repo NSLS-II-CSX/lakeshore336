@@ -1,10 +1,9 @@
 record(fanout, "$(Sys)$(Dev)FOut"){
-  field(SCAN, "10 second")
   field(LNK1, "$(Sys)$(Dev)Sts:Ramp-Sts") 
   field(LNK2, "$(Sys)$(Dev)Out-I")
   field(LNK3, "$(Sys)$(Dev)T-RB")
   field(SELM, "All")
-  info(autosaveFields, "SCAN")
+  field(SCAN, "Passive")
 }
 
 record(ao, "$(Sys)$(Dev)T-SP"){
