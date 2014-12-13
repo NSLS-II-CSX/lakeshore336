@@ -7,15 +7,17 @@ file "${TOP}/db/lakeshore336.db" {
 }
 
 file "${TOP}/db/lakeshore336_chan.db" {
-  pattern { Sys , Dev , PORT , CHAN }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:A}", "LAKE1", "A" }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:B}", "LAKE1", "B" }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:C}", "LAKE1", "C" }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:D}", "LAKE1", "D" }
+  pattern { Sys , Dev , PORT , CHAN , SCAN }
+  { "XF:23ID1-ES", "{TCtrl:1-Chan:A}", "LAKE1", "A" , "10 second" }
+  { "XF:23ID1-ES", "{TCtrl:1-Chan:B}", "LAKE1", "B" , "10 second" }
+  { "XF:23ID1-ES", "{TCtrl:1-Chan:C}", "LAKE1", "C" , "10 second" }
+  { "XF:23ID1-ES", "{TCtrl:1-Chan:D}", "LAKE1", "D" , "10 second" }
 }
 
 file "${TOP}/db/lakeshore336_loop.db" {
-  pattern { Sys , Dev , PORT , CHAN }
-  { "XF:23ID1-ES", "{TCtrl:1-Out:1}", "LAKE1", "1" }
-  { "XF:23ID1-ES", "{TCtrl:1-Out:2}", "LAKE1", "2" }
+  pattern { Sys , Dev , PORT , CHAN , SCAN }
+  { "XF:23ID1-ES", "{TCtrl:1-Out:1}", "LAKE1", "1" , "10 second" }
+  { "XF:23ID1-ES", "{TCtrl:1-Out:2}", "LAKE1", "2" , "10 second" }
+  #{ "XF:23ID1-ES", "{TCtrl:1-Out:3}", "LAKE1", "3" , "5 second" }
+  #{ "XF:23ID1-ES", "{TCtrl:1-Out:4}", "LAKE1", "4" , "5 second" }
 }

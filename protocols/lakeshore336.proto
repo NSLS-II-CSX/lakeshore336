@@ -65,7 +65,7 @@ readFloat3_3 {
 }
 readString {
   out "\$1 \$2";
-  in "%15s";
+  in "%s %*s";
 }
 writeString {
   out "\$1 \$2,%s";

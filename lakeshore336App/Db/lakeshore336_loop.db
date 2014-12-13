@@ -1,7 +1,8 @@
 record(fanout, "$(Sys)$(Dev)FOut"){
-  field(LNK1, "$(Sys)$(Dev)Sts:Ramp-Sts") 
-  field(LNK2, "$(Sys)$(Dev)Out-I")
-  field(LNK3, "$(Sys)$(Dev)T-RB")
+  field(LNK1, "$(Sys)$(Dev)T-RB")
+  field(LNK2, "$(Sys)$(Dev)Sts:Ramp-Sts") 
+  field(LNK3, "$(Sys)$(Dev)Out-I")
+  field(LNK4, "$(Sys)$(Dev)Err:Htr-Sts")
   field(SELM, "All")
   field(SCAN, "Passive")
 }
@@ -13,14 +14,10 @@ record(ao, "$(Sys)$(Dev)T-SP"){
   info(autosaveFields, "VAL")
 }
 
-record(calc, "$(Sys)$(Dev)T-RB"){
-  field(CALC, "A")
-  field(INPA, "$(Sys)$(Dev)T-RB_ PP MS")
-  field(INPB, "$(Sys)$(Dev)Err:Htr-Sts PP MS")
-}
-
-record(ai, "$(Sys)$(Dev)T-RB_"){
+record(ai, "$(Sys)$(Dev)T-RB"){
   field(DTYP, "stream")
+  field(SDIS, "$(Sys)$(Dev)Err:Htr-Sts")
+  field(DISA, "256")
   field(INP,  "@lakeshore336.proto readFloat(SETP?,$(CHAN)) $(PORT)")
 }
 
@@ -71,7 +68,7 @@ record(mbbi, "$(Sys)$(Dev)Mode-Sts"){
   field(THST, "OPEN LOOP")
   field(FRST, "MONITOR")
   field(FVST, "WARMUP")
-  field(PINI, "1")
+  field(SCAN, "$(SCAN)")
 }
 
 record(mbbi, "$(Sys)$(Dev)Out-Sts"){
@@ -121,6 +118,7 @@ record(ao, "$(Sys)$(Dev)Gain:D-SP"){
 record(ai, "$(Sys)$(Dev)Gain:P-RB"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat3_1(PID?,$(CHAN)) $(PORT)")
+  field(SCAN, "$(SCAN)")
 }
 
 record(ai, "$(Sys)$(Dev)Gain:I-RB"){
@@ -168,7 +166,7 @@ record(bi, "$(Sys)$(Dev)Enbl:Ramp-Sts"){
   field(INP,  "@lakeshore336.proto readIntFloat_1(RAMP?,$(CHAN)) $(PORT)")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
-  field(PINI, "1")
+  field(SCAN, "$(SCAN)")
 }
 
 record(ai, "$(Sys)$(Dev)Val:Ramp-RB"){
@@ -199,7 +197,7 @@ record(mbbi, "$(Sys)$(Dev)Val:Range-Sts"){
   field(THST, "RANGE 3")
   field(FRST, "RANGE 4")
   field(FVST, "RANGE 5")
-  field(PINI, "1")
+  field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:ATune-Sel"){
@@ -215,6 +213,8 @@ record(ai, "$(Sys)$(Dev)Out-I"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat(HTR?,$(CHAN)) $(PORT)")
   field(EGU, "%")
+  field(SDIS, "$(Sys)$(Dev)Err:Htr-Sts NPP MS")
+  field(DISA, "16")
 }
 
 record(mbbi, "$(Sys)$(Dev)Err:Htr-Sts"){
@@ -239,7 +239,7 @@ record(ao, "$(Sys)$(Dev)Out:Man-SP"){
 record(ai, "$(Sys)$(Dev)Out:Man-RB"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat(MOUT?,$(CHAN)) $(PORT)")
-  field(PINI, "1")
+  field(SCAN, "$(SCAN)")
 }
 
 record(mbbi, "$(Sys)$(Dev)Out:R-RB"){
@@ -249,7 +249,7 @@ record(mbbi, "$(Sys)$(Dev)Out:R-RB"){
   field(ONST, "50 OHM")
   field(ZRVL, "1")
   field(ONVL, "2")
-  field(PINI, "1")
+  field(SCAN, "$(SCAN)")
 }
 
 record(mbbi, "$(Sys)$(Dev)Out:Max-RB"){

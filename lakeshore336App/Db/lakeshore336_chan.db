@@ -2,6 +2,7 @@ record(fanout, "$(Sys)$(Dev)FOut"){
   field(SELM, "All")
   field(LNK1, "$(Sys)$(Dev)T-I")
   field(LNK2, "$(Sys)$(Dev)Val:Sens-I")
+  field(LNK3, "$(Sys)$(Dev)T-Sts")
   field(SCAN, "Passive")
 }
 
@@ -11,7 +12,7 @@ record(ai, "$(Sys)$(Dev)T-I"){
   field(PREC, "3")
   field(DTYP, "stream")
   field(SDIS, "$(Sys)$(Dev)T-Sts NPP MS")
-  field(DISA, "256")
+  field(DISA, "16")
   field(INP,  "@lakeshore336.proto readFloat(KRDG?,$(CHAN)) $(PORT)")
 }
 
@@ -19,8 +20,9 @@ record(ai, "$(Sys)$(Dev)Val:Sens-I"){
   field(DESC, "Sensor Reading")
   field(DTYP, "stream")
   field(SDIS, "$(Sys)$(Dev)T-Sts NPP MS")
-  field(DISA, "256")
+  field(DISA, "16")
   field(INP,  "@lakeshore336.proto readFloat(SRDG?,$(CHAN)) $(PORT)")
+  field(PREC, "5")
 }
 
 record(mbbi, "$(Sys)$(Dev)T-Sts"){
@@ -50,7 +52,7 @@ record(mbbi, "$(Sys)$(Dev)T-Sts"){
 record(ai, "$(Sys)$(Dev)T:Lim-RB"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat(TLIMIT?,$(CHAN)) $(PORT)")
-  field(PINI, "1")
+  field(SCAN, "$(SCAN)")
   field(EGU,  "K")
 }
 
@@ -98,7 +100,7 @@ record(bi, "$(Sys)$(Dev)Cmd:Fltr-Sts"){
   field(INP,  "@lakeshore336.proto readIntFloatFloat_1(FILTER?,$(CHAN)) $(PORT)")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
-  field(PINI, "1")
+  field(SCAN, "$(SCAN)")
 }
 
 record(ai, "$(Sys)$(Dev)Val:FltrP-RB"){
@@ -123,4 +125,5 @@ record(stringout, "$(Sys)$(Dev)T:Name-SP"){
 record(stringin, "$(Sys)$(Dev)T:Name-RB"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readString(INNAME?,$(CHAN)) $(PORT)")
+  field(SCAN, "$(SCAN)")
 }
