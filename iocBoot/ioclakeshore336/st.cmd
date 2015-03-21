@@ -24,7 +24,7 @@ asynSetTraceIOMask("LAKE2", 0, 0x2)
 
 ## Load record instances
 dbLoadTemplate("$(TOP)/db/lakeshore336.template")
-asSetFilename("/epics/xf/23id/xf23id.acf")
+dbLoadRecords("$(EPICS_BASE)/db/iocAdminSoft.db", "IOC=XF:23ID1-CT{IOC:TCTRL1}")
 
 system("install -m 777 -d $(TOP)/as/save") 
 system("install -m 777 -d $(TOP)/as/req")
@@ -33,6 +33,8 @@ set_savefile_path("${TOP}/as","/save")
 set_requestfile_path("${TOP}/as","/req")
 set_pass0_restoreFile("info_positions.sav")
 set_pass1_restoreFile("info_settings.sav")
+
+asSetFilename("/epics/xf/23id/xf23id.acf")
 
 iocInit()
 

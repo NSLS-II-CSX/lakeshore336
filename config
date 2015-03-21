@@ -1,0 +1,4 @@
+NAME=es-tctrl1
+USER=softioc
+PORT=5010
+HOST=xf23id1-ioc2
