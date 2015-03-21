@@ -1,8 +1,9 @@
 record(fanout, "$(Sys)$(Dev)FOut"){
   field(SELM, "All")
   field(LNK1, "$(Sys)$(Dev)T-I")
-  field(LNK2, "$(Sys)$(Dev)Val:Sens-I")
-  field(LNK3, "$(Sys)$(Dev)T-Sts")
+  field(LNK2, "$(Sys)$(Dev)T:C-I")
+  field(LNK3, "$(Sys)$(Dev)Val:Sens-I")
+  field(LNK4, "$(Sys)$(Dev)T-Sts")
   field(SCAN, "Passive")
 }
 
@@ -14,6 +15,16 @@ record(ai, "$(Sys)$(Dev)T-I"){
   field(SDIS, "$(Sys)$(Dev)T-Sts NPP MS")
   field(DISA, "16")
   field(INP,  "@lakeshore336.proto readFloat(KRDG?,$(CHAN)) $(PORT)")
+}
+
+record(ai, "$(Sys)$(Dev)T:C-I"){
+  field(DESC, "Temperature")
+  field(EGU,  "degC")
+  field(PREC, "3")
+  field(DTYP, "stream")
+  field(SDIS, "$(Sys)$(Dev)T-Sts NPP MS")
+  field(DISA, "16")
+  field(INP,  "@lakeshore336.proto readFloat(CRDG?,$(CHAN)) $(PORT)")
 }
 
 record(ai, "$(Sys)$(Dev)Val:Sens-I"){
