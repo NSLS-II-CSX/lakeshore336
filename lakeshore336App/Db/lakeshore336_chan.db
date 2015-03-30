@@ -4,6 +4,8 @@ record(fanout, "$(Sys)$(Dev)FOut"){
   field(LNK2, "$(Sys)$(Dev)T:C-I")
   field(LNK3, "$(Sys)$(Dev)Val:Sens-I")
   field(LNK4, "$(Sys)$(Dev)T-Sts")
+  field(LNK5, "$(Sys)$(Dev)Alrm:High-Sts")
+  field(LNK6, "$(Sys)$(Dev)Alrm:Low-Sts")
   field(SCAN, "Passive")
 }
 
@@ -22,7 +24,7 @@ record(ai, "$(Sys)$(Dev)T:C-I"){
   field(EGU,  "degC")
   field(PREC, "3")
   field(DTYP, "stream")
-  field(SDIS, "$(Sys)$(Dev)T-Sts NPP MS")
+  field(SDIS, "$(Sys)$(Dev)Alrm-Calc_ NPP MS")
   field(DISA, "16")
   field(INP,  "@lakeshore336.proto readFloat(CRDG?,$(CHAN)) $(PORT)")
 }
@@ -34,6 +36,33 @@ record(ai, "$(Sys)$(Dev)Val:Sens-I"){
   field(DISA, "16")
   field(INP,  "@lakeshore336.proto readFloat(SRDG?,$(CHAN)) $(PORT)")
   field(PREC, "5")
+}
+
+record(calc, "$(Sys)$(Dev)Alrm-Calc_"){
+  field(INPA, "$(Sys)$(Dev)Alrm:High-Sts NPP MS")
+  field(INPB, "$(Sys)$(Dev)Alrm:Low-Sts NPP MS")
+  field(INPC, "$(Sys)$(Dev)T-Sts NPP MS")
+  field(CALC, "0")
+}
+
+record(bi, "$(Sys)$(Dev)Alrm:High-Sts"){
+  field(DTYP, "stream")
+  field(INP,  "@lakeshore336.proto readIntInt_1(ALARMST?,$(CHAN)) $(PORT)")
+  field(ZNAM, "OK")
+  field(ONAM, "ALARM")
+  field(ZSV,  "NO_ALARM")
+  field(OSV,  "MAJOR")
+  field(FLNK, "$(Sys)$(Dev)Alrm-Calc_")
+}
+
+record(bi, "$(Sys)$(Dev)Alrm:Low-Sts"){
+  field(DTYP, "stream")
+  field(INP,  "@lakeshore336.proto readIntInt_2(ALARMST?,$(CHAN)) $(PORT)")
+  field(ZNAM, "OK")
+  field(ONAM, "ALARM")
+  field(ZSV,  "NO_ALARM")
+  field(OSV,  "MAJOR")
+  field(FLNK, "$(Sys)$(Dev)Alrm-Calc_")
 }
 
 record(mbbi, "$(Sys)$(Dev)T-Sts"){
@@ -58,6 +87,7 @@ record(mbbi, "$(Sys)$(Dev)T-Sts"){
   field(THSV, "MAJOR")
   field(FRSV, "MAJOR")
   field(FVSV, "MAJOR")
+  field(FLNK, "$(Sys)$(Dev)Alrm-Calc_")
 }
 
 record(ai, "$(Sys)$(Dev)T:Lim-RB"){
@@ -117,13 +147,13 @@ record(bi, "$(Sys)$(Dev)Cmd:Fltr-Sts"){
 record(ai, "$(Sys)$(Dev)Val:FltrP-RB"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readIntFloatFloat_2(FILTER?,$(CHAN)) $(PORT)")
-  field(SCAN, "I/O Intr")
+  field(SCAN, "$(SCAN)")
 }
 
 record(ai, "$(Sys)$(Dev)Val:FltrW-RB"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readIntFloatFloat_3(FILTER?,$(CHAN)) $(PORT)")
-  field(SCAN, "I/O Intr")
+  field(SCAN, "$(SCAN)")
 }
 
 record(stringout, "$(Sys)$(Dev)T:Name-SP"){

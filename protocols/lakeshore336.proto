@@ -28,6 +28,7 @@ readIntFloat_1 {
   in  "%d,%*f";
 }
 readIntFloat_2 {
+  out "\$1 \$2";
   in  "%*d,%f";
 }
 writeIntFloatFloat {
@@ -38,10 +39,20 @@ readIntFloatFloat_1 {
   in  "%d,%*f,%*f";
 }
 readIntFloatFloat_2 {
+  out "\$1 \$2";
   in  "%*d,%f,%*f";
 }
 readIntFloatFloat_3 {
+  out "\$1 \$2";
   in  "%*d,%*f,%f";
+}
+readIntInt_1 {
+  out "\$1 \$2";
+  in  "%d,%*d";
+}
+readIntInt_2 {
+  out "\$1 \$2";
+  in  "%*d,%d";
 }
 readInt3_1 {
   out "\$1 \$2";
@@ -58,9 +69,11 @@ readFloat3_1 {
   in  "%f,%*f,%*f";
 }
 readFloat3_2 {
+  out "\$1 \$2";
   in  "%*f,%f,%*f";
 }
 readFloat3_3 {
+  out "\$1 \$2";
   in  "%*f,%*f,%f";
 }
 readString {
