@@ -19,8 +19,8 @@ drvAsynIPPortConfigure("LAKE1", "10.23.3.11:7777")
 #asynSetTraceMask("LAKE1", 0, 0x9)
 #asynSetTraceIOMask("LAKE1", 0, 0x2)
 drvAsynIPPortConfigure("LAKE2", "10.23.3.10:7777")
-asynSetTraceMask("LAKE2", 0, 0x9)
-asynSetTraceIOMask("LAKE2", 0, 0x2)
+#asynSetTraceMask("LAKE2", 0, 0x9)
+#asynSetTraceIOMask("LAKE2", 0, 0x2)
 
 ## Load record instances
 dbLoadTemplate("$(TOP)/db/lakeshore336.template")
@@ -46,4 +46,4 @@ create_monitor_set("info_positions.req", 5 , "")
 create_monitor_set("info_settings.req", 15 , "")
 
 dbl > ${TOP}/records.dbl
-system("cp ${TOP}/records.dbl /cf-update/xf23id1-ioc2.es-tctrl1.dbl")
+system("cp ${TOP}/records.dbl /cf-update/xf23id1-ioc3.es-tctrl1.dbl")
