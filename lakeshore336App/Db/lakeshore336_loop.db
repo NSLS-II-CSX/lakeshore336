@@ -1,4 +1,10 @@
 record(fanout, "$(Sys)$(Dev)FOut"){
+  field(LNK1, "$(Sys)$(Dev)FOut:1_")
+  field(LNK2, "$(Sys)$(Dev)FOut:2_")
+  field(SELM, "All")
+  field(SCAN, "Passive")
+}
+record(fanout, "$(Sys)$(Dev)FOut:1_"){
   field(LNK1, "$(Sys)$(Dev)T-RB")
   field(LNK2, "$(Sys)$(Dev)Sts:Ramp-Sts") 
   field(LNK3, "$(Sys)$(Dev)Out-I")
@@ -9,11 +15,22 @@ record(fanout, "$(Sys)$(Dev)FOut"){
   field(SCAN, "Passive")
 }
 
+record(fanout, "$(Sys)$(Dev)FOut:2_"){
+  field(LNK1, "$(Sys)$(Dev)Out:Ana-I")
+  field(SELM, "All")
+  field(SCAN, "Passive")
+}
+
 record(ao, "$(Sys)$(Dev)T-SP"){
   field(DTYP, "stream")
   field(OUT,  "@lakeshore336.proto writeFloat(SETP,$(CHAN)) $(PORT)")
-  field(FLNK, "$(Sys)$(Dev)T-RB")
+  field(FLNK, "$(Sys)$(Dev)T-Seq_")
   info(autosaveFields, "VAL")
+}
+
+record(seq, "$(Sys)$(Dev)T-Seq_"){
+  field(LNK1, "$(Sys)$(Dev)T-RB.PROC")
+  field(DLY1, "1")
 }
 
 record(ai, "$(Sys)$(Dev)T-RB"){
@@ -152,9 +169,16 @@ record(calcout, "$(Sys)$(Dev)Enbl:Ramp-Calc_"){
   field(DTYP, "stream")
   field(OUT,  "@lakeshore336.proto writeIntFloat(RAMP,$(CHAN)) $(PORT)")
   field(CALC, "0")
-  field(FLNK, "$(Sys)$(Dev)Enbl:Ramp-Sts")
+  field(FLNK, "$(Sys)$(Dev)Enbl:Ramp-Seq_")
   field(INPB, "$(Sys)$(Dev)Val:Ramp-SP")
   field(INPA, "$(Sys)$(Dev)Enbl:Ramp-Sel")
+}
+
+record(seq, "$(Sys)$(Dev)Enbl:Ramp-Seq_"){
+  field(DLY1, "1")
+  field(LNK1, "$(Sys)$(Dev)Val:Ramp-RB.PROC")
+  field(LNK2, "$(Sys)$(Dev)Enbl:Ramp-Sts.PROC")
+  field(LNK3, "$(Sys)$(Dev)Sts:Ramp-Sts.PROC")
 }
   
 record(bo, "$(Sys)$(Dev)Enbl:Ramp-Sel"){
@@ -229,6 +253,22 @@ record(mbbi, "$(Sys)$(Dev)Mode:ATune-Sts"){
 record(ai, "$(Sys)$(Dev)Out-I"){
   field(DTYP, "stream")
   field(INP,  "@lakeshore336.proto readFloat(HTR?,$(CHAN)) $(PORT)")
+  field(EGU, "%")
+  field(SDIS, "$(Sys)$(Dev)Alrm-Calc_ NPP MS")
+  field(DISA, "1")
+}
+
+record(ai, "$(Sys)$(Dev)Out:Ana-I"){
+  field(DTYP, "stream")
+  field(INP,  "@lakeshore336.proto readFloat(AOUT?,$(CHAN)) $(PORT)")
+  field(EGU, "%")
+  field(SDIS, "$(Sys)$(Dev)Alrm-Calc_ NPP MS")
+  field(DISA, "1")
+}
+
+record(ai, "$(Sys)$(Dev)Out:Ana-I"){
+  field(DTYP, "stream")
+  field(INP,  "@lakeshore336.proto readFloat(AOUT?,$(CHAN)) $(PORT)")
   field(EGU, "%")
   field(SDIS, "$(Sys)$(Dev)Alrm-Calc_ NPP MS")
   field(DISA, "1")

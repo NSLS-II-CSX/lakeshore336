@@ -1,0 +1,14 @@
+record(calcout, "$(Sys)$(Dev)Calc_"){
+	field(INPB, "$(Sys)$(Dev)Calc_")
+	field(INPA, "$(Sys)$(Dev)T-I")
+	field(CALC, "A")
+	field(OCAL, "60*(A-B)/10")
+	field(DOPT, "Use OCAL")
+	field(SCAN, "10 second")
+	field(OUT,  "$(Sys)$(Dev)T:Rate-I")
+	field(FLNK, "$(Sys)$(Dev)T:Rate-I")
+}
+
+record(ao, "$(Sys)$(Dev)T:Rate-I"){
+	field(EGU, "K/min")
+}

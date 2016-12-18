@@ -8,6 +8,14 @@ file "${TOP}/db/lakeshore336.db" {
     "{TCtrl:2-Chan:A}", "{TCtrl:2-Chan:B}",
     "{TCtrl:2-Chan:C}", "{TCtrl:2-Chan:D}",
     "{TCtrl:2-Out:1}", "{TCtrl:2-Out:2}" }
+  { "XF:23ID1-OP", "{TCtrl:1}",
+    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",
+    "", "",
+    "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}" }
+#  { "XF:23ID1-OP", "{TCtrl:2}",
+#    "{TCtrl:2-Chan:A}", "{TCtrl:2-Chan:B}",
+#    "", "",
+#    "{TCtrl:2-Out:1}", "{TCtrl:2-Out:2}" }
 }
 
 file "${TOP}/db/lakeshore336_chan.db" {
@@ -20,6 +28,12 @@ file "${TOP}/db/lakeshore336_chan.db" {
   { "XF:23ID1-ES", "{TCtrl:2-Chan:B}", "LAKE2", "B" , "10 second" }
   { "XF:23ID1-ES", "{TCtrl:2-Chan:C}", "LAKE2", "C" , "10 second" }
   { "XF:23ID1-ES", "{TCtrl:2-Chan:D}", "LAKE2", "D" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Chan:A}", "LAKE3", "A" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Chan:B}", "LAKE3", "B" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Chan:C}", "LAKE3", "C" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Chan:D}", "LAKE3", "D" , "10 second" }
+#  { "XF:23ID1-OP", "{TCtrl:2-Chan:A}", "LAKE4", "A" , "10 second" }
+#  { "XF:23ID1-OP", "{TCtrl:2-Chan:B}", "LAKE4", "B" , "10 second" }
 }
 
 file "${TOP}/db/lakeshore336_loop.db" {
@@ -28,4 +42,10 @@ file "${TOP}/db/lakeshore336_loop.db" {
   { "XF:23ID1-ES", "{TCtrl:1-Out:2}", "LAKE1", "2" , "10 second" }
   { "XF:23ID1-ES", "{TCtrl:2-Out:1}", "LAKE2", "1" , "10 second" }
   { "XF:23ID1-ES", "{TCtrl:2-Out:2}", "LAKE2", "2" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Out:1}", "LAKE3", "1" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Out:2}", "LAKE3", "2" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Out:3}", "LAKE3", "3" , "10 second" }
+  { "XF:23ID1-OP", "{TCtrl:1-Out:4}", "LAKE3", "4" , "10 second" }
+#  { "XF:23ID1-OP", "{TCtrl:2-Out:1}", "LAKE4", "1" , "10 second" }
+#  { "XF:23ID1-OP", "{TCtrl:2-Out:2}", "LAKE4", "2" , "10 second" }
 }
