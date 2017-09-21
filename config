@@ -1,4 +1,4 @@
-NAME=es-tctrl1
+NAME=lakeshore336
 USER=softioc
-PORT=5010
-HOST=xf23id1-ioc3
+PORT=6010
+HOST=xf02id1-ioc1

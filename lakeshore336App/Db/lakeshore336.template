@@ -1,51 +1,43 @@
+
 file "${TOP}/db/lakeshore336.db" {
-  pattern { Sys , Dev , LNK1 , LNK2 , LNK3 , LNK4 , LNK5 , LNK6 }
-  { "XF:23ID1-ES", "{TCtrl:1}",
+  pattern { Sys , Dev , LNK1 , LNK2 , LNK3 , LNK4 , LNK5 , LNK6 , LNK7, LNK8, LNK9, LNK10  }  # TODO added LNK7 - 10 to add D2-D5 (4 more sensors) , assumed this is required. fix at 23?
+  { "XF:02ID-OP", "{TCtrl:1}",
     "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",
     "{TCtrl:1-Chan:C}", "{TCtrl:1-Chan:D}",
+    "{TCtrl:1-Chan:D2}", "{TCtrl:1-Chan:D3}",
+    "{TCtrl:1-Chan:D4}", "{TCtrl:1-Chan:D5}",
     "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}" }
-  { "XF:23ID1-ES", "{TCtrl:2}",
-    "{TCtrl:2-Chan:A}", "{TCtrl:2-Chan:B}",
-    "{TCtrl:2-Chan:C}", "{TCtrl:2-Chan:D}",
-    "{TCtrl:2-Out:1}", "{TCtrl:2-Out:2}" }
-  { "XF:23ID1-OP", "{TCtrl:1}",
-    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",
-    "", "",
-    "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}" }
-#  { "XF:23ID1-OP", "{TCtrl:2}",
-#    "{TCtrl:2-Chan:A}", "{TCtrl:2-Chan:B}",
-#    "", "",
-#    "{TCtrl:2-Out:1}", "{TCtrl:2-Out:2}" }
+  #{ "XF:02ID-OP", "{TCtrl:1}",
+  #  "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",
+  #  "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}" }
 }
 
-file "${TOP}/db/lakeshore336_chan.db" {
+file "${TOP}/db/lakeshore336_chan.db" {  #TODO this like the file to use as a DESC portion to add below so that one can name channel (e.g., sample, m1 supply)
   pattern { Sys , Dev , PORT , CHAN , SCAN }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:A}", "LAKE1", "A" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:B}", "LAKE1", "B" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:C}", "LAKE1", "C" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:1-Chan:D}", "LAKE1", "D" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:2-Chan:A}", "LAKE2", "A" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:2-Chan:B}", "LAKE2", "B" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:2-Chan:C}", "LAKE2", "C" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:2-Chan:D}", "LAKE2", "D" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Chan:A}", "LAKE3", "A" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Chan:B}", "LAKE3", "B" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Chan:C}", "LAKE3", "C" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Chan:D}", "LAKE3", "D" , "10 second" }
-#  { "XF:23ID1-OP", "{TCtrl:2-Chan:A}", "LAKE4", "A" , "10 second" }
-#  { "XF:23ID1-OP", "{TCtrl:2-Chan:B}", "LAKE4", "B" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:A}", "LAKE1", "A" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:B}", "LAKE1", "B" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:C}", "LAKE1", "C" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:D}", "LAKE1", "D" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:A}", "LAKE1", "D2" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:B}", "LAKE1", "D3" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:C}", "LAKE1", "D4" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Chan:D}", "LAKE1", "D5" , "10 second" }
+  #{ "XF:02ID1-ES", "{TCtrl:1-Chan:A}", "LAKE3", "A" , "10 second" }
+  #{ "XF:02ID1-ES", "{TCtrl:1-Chan:B}", "LAKE3", "B" , "10 second" }
+  #{ "XF:02ID1-ES", "{TCtrl:1-Chan:C}", "LAKE3", "C" , "10 second" }
+  #{ "XF:02ID1-ES", "{TCtrl:1-Chan:D}", "LAKE3", "D" , "10 second" }
 }
 
 file "${TOP}/db/lakeshore336_loop.db" {
   pattern { Sys , Dev , PORT , CHAN , SCAN }
-  { "XF:23ID1-ES", "{TCtrl:1-Out:1}", "LAKE1", "1" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:1-Out:2}", "LAKE1", "2" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:2-Out:1}", "LAKE2", "1" , "10 second" }
-  { "XF:23ID1-ES", "{TCtrl:2-Out:2}", "LAKE2", "2" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Out:1}", "LAKE3", "1" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Out:2}", "LAKE3", "2" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Out:3}", "LAKE3", "3" , "10 second" }
-  { "XF:23ID1-OP", "{TCtrl:1-Out:4}", "LAKE3", "4" , "10 second" }
-#  { "XF:23ID1-OP", "{TCtrl:2-Out:1}", "LAKE4", "1" , "10 second" }
-#  { "XF:23ID1-OP", "{TCtrl:2-Out:2}", "LAKE4", "2" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Out:1}", "LAKE1", "1" , "10 second" }
+  { "XF:02ID-OP", "{TCtrl:1-Out:2}", "LAKE1", "2" , "10 second" }
+  #{ "XF:02ID1-ES", "{TCtrl:2-Out:1}", "LAKE2", "1" , "10 second" }
+  #{ "XF:02ID1-ES", "{TCtrl:2-Out:2}", "LAKE2", "2" , "10 second" }
+  #{ "XF:02ID1-OP", "{TCtrl:1-Out:1}", "LAKE3", "1" , "10 second" }
+  #{ "XF:02ID1-OP", "{TCtrl:1-Out:2}", "LAKE3", "2" , "10 second" }
+  #{ "XF:02ID1-OP", "{TCtrl:1-Out:3}", "LAKE3", "3" , "10 second" }
+  #{ "XF:02ID1-OP", "{TCtrl:1-Out:4}", "LAKE3", "4" , "10 second" }
+  #{ "XF:02ID1-OP", "{TCtrl:2-Out:1}", "LAKE4", "1" , "10 second" }
+  #{ "XF:02ID1-OP", "{TCtrl:2-Out:2}", "LAKE4", "2" , "10 second" }
 }
