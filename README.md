@@ -4,6 +4,5 @@ Lakeshore 336
 IOC for the Lakeshore 336 controller.
 
 Implementation used at 2ID (SIX)
-	* python scripts and notebooks to load calibration tables are included
-	* notebooks are titled to reflect temperature probe make and model
- 
++ python script and notebooks are available to load calibration tables over the network
++ notebooks are titled to reflect the make and model of the temperature probe
