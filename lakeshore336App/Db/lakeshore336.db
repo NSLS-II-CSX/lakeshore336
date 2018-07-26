@@ -1,11 +1,22 @@
-record(fanout, "$(Sys)$(Dev)FOut"){
+record(fanout, "$(Sys)$(Dev)FOut:1"){
   field(SELM, "All")
   field(LNK1, "$(Sys)$(LNK1)FOut")
   field(LNK2, "$(Sys)$(LNK2)FOut")
   field(LNK3, "$(Sys)$(LNK3)FOut")
   field(LNK4, "$(Sys)$(LNK4)FOut")
   field(LNK5, "$(Sys)$(LNK5)FOut")
-  field(LNK6, "$(Sys)$(LNK6)FOut")
+  field(SCAN, "2 second")
+  info(autosaveFields, "SCAN")
+}
+
+record(fanout, "$(Sys)$(Dev)FOut:2"){
+  field(SELM, "All")
+  field(LNK1, "$(Sys)$(LNK6)FOut")
+  field(LNK2, "$(Sys)$(LNK7)FOut")
+  field(LNK3, "$(Sys)$(LNK8)FOut")
+  field(LNK4, "$(Sys)$(LNK9)FOut")
+  field(LNK5, "$(Sys)$(LNK10)FOut")
+  field(LNK6, "$(Sys)$(LNK11)FOut")
   field(SCAN, "2 second")
   info(autosaveFields, "SCAN")
 }
