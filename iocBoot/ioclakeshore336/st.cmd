@@ -21,6 +21,9 @@ drvAsynIPPortConfigure("LAKE1", "10.2.2.110:7777")
 drvAsynIPPortConfigure("LAKE2", "10.2.2.111:7777")
 #asynSetTraceMask("LAKE2", 0, 0x9)
 #asynSetTraceIOMask("LAKE2", 0, 0x2)
+#drvAsynIPPortConfigure("LAKE3", "10.2.2.112:7777")
+#asynSetTraceMask("LAKE3", 0, 0x9)
+#asynSetTraceIOMask("LAKE3", 0, 0x2)
 
 ## Load record instances
 dbLoadTemplate("$(TOP)/db/lakeshore336.template")
@@ -29,7 +32,7 @@ dbLoadRecords("$(TOP)/db/derivative.db", "Sys=XF:02IDD-ES,Dev={TCtrl:1-Chan:A}")
 dbLoadRecords("$(TOP)/db/derivative.db", "Sys=XF:02IDD-ES,Dev={TCtrl:1-Chan:B}")
 dbLoadRecords("$(TOP)/db/asynRecord.db", "P=XF:02ID-OP{TCtrl:1},R=Asyn,PORT=LAKE1,ADDR=0,IMAX=100,OMAX=100")
 dbLoadRecords("$(TOP)/db/asynRecord.db", "P=XF:02IDD-ES{TCtrl:1},R=Asyn,PORT=LAKE2,ADDR=0,IMAX=100,OMAX=100") 
-#dbLoadRecords("$(TOP)/db/asynRecord.db", "P=XF:02ID-ES{TCtrl:2},R=Asyn,PORT=LAKE2,ADDR=0,IMAX=100,OMAX=100")
+#dbLoadRecords("$(TOP)/db/asynRecord.db", "P=XF:02ID-TEST{TCtrl:1},R=Asyn,PORT=LAKE3,ADDR=0,IMAX=100,OMAX=100")
 
 system("install -m 777 -d $(TOP)/as/save") 
 system("install -m 777 -d $(TOP)/as/req")

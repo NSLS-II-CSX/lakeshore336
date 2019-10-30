@@ -10,13 +10,23 @@ file "${TOP}/db/lakeshore336.db" {
     "{TCtrl:1-Chan:D5}", "{TCtrl:1-Chan:D3}",
     "{TCtrl:1-Out:1}", "{TCtrl:1-Out3}", "{TCtrl:1-Out:4}" }
   { "XF:02IDD-ES", "{TCtrl:1}",
-    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",
+    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}", ""
     "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}", 
     "" , "" ,
     "" , "" ,
     "" , "" ,
     "" }
+#  { "XF:02IDD-TEST", "{TCtrl:1}",
+#    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}", "{TCtrl:1-Chan:C}"
+#    "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}", 
+#    "" , "" ,
+#    "" , "" ,
+#    "" , "" ,
+#    "" }
+
 }
+
+
 file "${TOP}/db/lakeshore336_chan.db" {
   pattern { Sys , Dev , PORT , CHAN , SCAN }
   { "XF:02ID-OP", "{TCtrl:1-Chan:A}", "LAKE1", "A" , "10 second" }
@@ -29,6 +39,10 @@ file "${TOP}/db/lakeshore336_chan.db" {
   { "XF:02ID-OP", "{TCtrl:1-Chan:D3}", "LAKE1", "D3" , "10 second" }
   { "XF:02IDD-ES", "{TCtrl:1-Chan:A}", "LAKE2", "A" , "10 second" }
   { "XF:02IDD-ES", "{TCtrl:1-Chan:B}", "LAKE2", "B" , "10 second" }
+#  { "XF:02IDD-ES", "{TCtrl:1-Chan:C}", "LAKE2", "C" , "10 second" }
+#  { "XF:02IDD-TEST", "{TCtrl:1-Chan:A}", "LAKE3", "A" , "10 second" }
+#  { "XF:02IDD-TEST", "{TCtrl:1-Chan:B}", "LAKE3", "B" , "10 second" }
+#  { "XF:02IDD-TEST", "{TCtrl:1-Chan:C}", "LAKE3", "C" , "10 second" }
 }
 
 file "${TOP}/db/lakeshore336_loop.db" {
@@ -38,4 +52,6 @@ file "${TOP}/db/lakeshore336_loop.db" {
   { "XF:02ID-OP", "{TCtrl:1-Out:4}", "LAKE1", "2" , "10 second" }
   { "XF:02IDD-ES", "{TCtrl:1-Out:1}", "LAKE2", "1" , "10 second" }
   { "XF:02IDD-ES", "{TCtrl:1-Out:2}", "LAKE2", "2" , "10 second" }
+#  { "XF:02IDD-TEST", "{TCtrl:1-Out:1}", "LAKE3", "1" , "10 second" }
+#  { "XF:02IDD-TEST", "{TCtrl:1-Out:2}", "LAKE3", "2" , "10 second" }
 }
