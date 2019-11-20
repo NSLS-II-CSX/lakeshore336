@@ -10,7 +10,7 @@ file "${TOP}/db/lakeshore336.db" {
     "{TCtrl:1-Chan:D5}", "{TCtrl:1-Chan:D3}",
     "{TCtrl:1-Out:1}", "{TCtrl:1-Out3}", "{TCtrl:1-Out:4}" }
   { "XF:02IDD-ES", "{TCtrl:1}",
-    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}", ""
+    "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",    "{TCtrl:1-Chan:C}",
     "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}", 
     "" , "" ,
     "" , "" ,
@@ -39,7 +39,7 @@ file "${TOP}/db/lakeshore336_chan.db" {
   { "XF:02ID-OP", "{TCtrl:1-Chan:D3}", "LAKE1", "D3" , "10 second" }
   { "XF:02IDD-ES", "{TCtrl:1-Chan:A}", "LAKE2", "A" , "10 second" }
   { "XF:02IDD-ES", "{TCtrl:1-Chan:B}", "LAKE2", "B" , "10 second" }
-#  { "XF:02IDD-ES", "{TCtrl:1-Chan:C}", "LAKE2", "C" , "10 second" }
+  { "XF:02IDD-ES", "{TCtrl:1-Chan:C}", "LAKE2", "C" , "10 second" }
 #  { "XF:02IDD-TEST", "{TCtrl:1-Chan:A}", "LAKE3", "A" , "10 second" }
 #  { "XF:02IDD-TEST", "{TCtrl:1-Chan:B}", "LAKE3", "B" , "10 second" }
 #  { "XF:02IDD-TEST", "{TCtrl:1-Chan:C}", "LAKE3", "C" , "10 second" }
