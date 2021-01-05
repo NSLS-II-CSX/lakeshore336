@@ -12,11 +12,13 @@ file "${TOP}/db/lakeshore336.db" {
     "{TCtrl:1-Chan:A}", "{TCtrl:1-Chan:B}",
     "", "",
     "{TCtrl:1-Out:1}", "{TCtrl:1-Out:2}" }
+}
+
 #  { "XF:23ID1-OP", "{TCtrl:2}",
 #    "{TCtrl:2-Chan:A}", "{TCtrl:2-Chan:B}",
 #    "", "",
 #    "{TCtrl:2-Out:1}", "{TCtrl:2-Out:2}" }
-}
+
 
 file "${TOP}/db/lakeshore336_chan.db" {
   pattern { Sys , Dev , PORT , CHAN , SCAN }

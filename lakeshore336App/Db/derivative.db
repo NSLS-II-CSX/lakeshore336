@@ -10,5 +10,20 @@ record(calcout, "$(Sys)$(Dev)Calc_"){
 }
 
 record(ao, "$(Sys)$(Dev)T:Rate-I"){
-	field(EGU, "K/min")
+	field(EGU,  "K/min")
+	field(PREC, "4")
+}
+
+record(calcout, "$(Sys)$(Dev)Calc__"){
+	field(INPB, "$(Sys)$(Dev)T-I CPP")
+	field(INPA, "$(Sys)$(DevSP)T-RB CPP")
+	field(CALC, "B-A")
+	field(SCAN, "Passive")
+	field(OUT,  "$(Sys)$(Dev)T:Err-I")
+	field(FLNK, "$(Sys)$(Dev)T:Err-I")
+}
+
+record(ao, "$(Sys)$(Dev)T:Err-I"){
+	field(EGU, "K")
+	field(PREC, "3")
 }
